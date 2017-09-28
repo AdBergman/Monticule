@@ -1,5 +1,3 @@
-
-
 /**
  * Project Monticule
  * by Group 10 DSV HT2017
@@ -7,9 +5,12 @@
  */
 
 
-
 public class Monticule {
 
     //TODO: everything :)
+
+    public static int returnOne(){
+        return 1;
+    }
 
 }
