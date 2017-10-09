@@ -5,6 +5,8 @@ package dsv.su.se.inte.group10;
  */
 
 public class GenCharacter {
+	
+	private Position position = new Position(10, 10);
 
     public int getDamage(){
         return 1;
@@ -20,5 +22,9 @@ public class GenCharacter {
 
     public int getCurrentHP(){
         return 1;
+    }
+    
+    public Position getPosition() {
+    	return this.position;
     }
 }
