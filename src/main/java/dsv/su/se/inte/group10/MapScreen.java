@@ -4,6 +4,7 @@ public class MapScreen {
 	
 	private int width;
 	private int height;
+	private int mapScreenType = 0;
 	
 	public MapScreen() {
 		this(600, 600); // default size for map screen.
@@ -24,5 +25,9 @@ public class MapScreen {
 	
 	public int getNumberOfExits() {
 		return 1;
+	}
+	
+	public int getMapScreenType() {
+		return mapScreenType;
 	}
 }
