@@ -37,8 +37,15 @@ public class GenCharacterTest {
     }
     
     @Test
-    public void testCharacterHasPosition() {
+    public void testGenCharacterHasPosition() {
     	assertNotNull(genChar.getPosition());
+    }
+    
+    @Test
+    public void testGenCharacterMoveUp() {
+    	Position prePos = genChar.getPosition();
+    	genChar.moveUp();
+    	assertTrue(prePos.getY() > genChar.getPosition().getY());
     }
 
     @Test
