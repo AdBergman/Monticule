@@ -5,21 +5,20 @@ import static org.junit.Assert.*;
 
 public class MapScreenTest {
 	
+	MapScreen ms = new MapScreen();
+	
     @Test
     public void testMapExists() {
-    	MapScreen ms = new MapScreen();
         assertNotNull(ms);
     }
     
     @Test
     public void testMapWidth() {
-    	MapScreen ms = new MapScreen();
     	assertEquals(600, ms.getWidth());
     }
     
     @Test
     public void testMapHeight() {
-    	MapScreen ms = new MapScreen();
     	assertEquals(600, ms.getHeight());
     }
     
@@ -32,9 +31,13 @@ public class MapScreenTest {
     
     @Test
     public void testMapHeightAndWidthWithoutInput() {
-    	MapScreen ms = new MapScreen();
     	assertEquals(600, ms.getWidth());
     	assertEquals(600, ms.getHeight());
+    }
+    
+    @Test
+    public void testMapScreenHasExit() {
+    	assertTrue(ms.getNumberOfExits() > 0);
     }
 
 }
