@@ -19,11 +19,11 @@ class Position {
 	}
 	
 	public void moveY(int i) {
-		this.yPos = yPos + i;
+		this.yPos = this.yPos + i;
 	}
 	
 	public void moveX(int i) {
-		this.yPos = yPos + i;
+		this.xPos = this.xPos + i;
 	}
 
 }

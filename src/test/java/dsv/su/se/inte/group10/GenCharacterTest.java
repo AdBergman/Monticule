@@ -47,6 +47,27 @@ public class GenCharacterTest {
     	genChar.moveUp();
     	assertTrue(prePos.getY() > genChar.getPosition().getY());
     }
+    
+    @Test
+    public void testGenCharacterMoveDown() {
+    	Position prePos = new Position(10,10);
+    	genChar.moveDown();
+    	assertTrue(prePos.getY() < genChar.getPosition().getY());
+    }
+    
+    @Test
+    public void testGenCharacterMoveLeft() {
+    	Position prePos = new Position(10,10);
+    	genChar.moveLeft();
+    	assertTrue(prePos.getX() > genChar.getPosition().getX());
+    }
+    
+    @Test
+    public void testGenCharacterMoveRight() {
+    	Position prePos = new Position(10,10);
+    	genChar.moveRight();
+    	assertTrue(prePos.getX() < genChar.getPosition().getX());
+    }
 
     @Test
     public void testGenCharacterMoveUnit(){
