@@ -15,5 +15,9 @@ public class MapScreen {
 	public int getWidth() {
 		return width;
 	}
+	
+	public int getHeight() {
+		return 600;
+	}
 
 }
