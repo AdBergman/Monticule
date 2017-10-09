@@ -10,5 +10,11 @@ public class MapScreenTest {
     	MapScreen mapScreen = new MapScreen();
         assertNotNull(mapScreen);
     }
+    
+    @Test
+    public void testMapWidth() {
+    	MapScreen mS = new MapScreen();
+    	assertEquals(600, mS.getWidth());
+    }
 
 }
