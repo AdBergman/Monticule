@@ -7,14 +7,14 @@ public class MapScreenTest {
 	
     @Test
     public void testMapExists() {
-    	MapScreen mapScreen = new MapScreen();
-        assertNotNull(mapScreen);
+    	MapScreen ms = new MapScreen();
+        assertNotNull(ms);
     }
     
     @Test
     public void testMapWidth() {
-    	MapScreen mS = new MapScreen();
-    	assertEquals(600, mS.getWidth());
+    	MapScreen ms = new MapScreen();
+    	assertEquals(600, ms.getWidth());
     }
 
 }
