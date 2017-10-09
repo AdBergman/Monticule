@@ -37,7 +37,8 @@ public class GenCharacterTest {
     }
 
     @Test
-    public void testGenCharacterGetCurrentHP2(){
-        assertEquals(2, genChar.getCurrentHP());
+    public void testGenCharacterMoveUnit(){
+        //TODO: once character has position
     }
+
 }
