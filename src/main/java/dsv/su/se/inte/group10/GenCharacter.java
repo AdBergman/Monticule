@@ -6,4 +6,19 @@ package dsv.su.se.inte.group10;
 
 public class GenCharacter {
 
+    public int getDamage(){
+        return 1;
+    }
+
+    public int getSpeed(){
+        return 1;
+    }
+
+    public int getMaxHP(){
+        return 1;
+    }
+
+    public int getCurrentHP(){
+        return 1;
+    }
 }
