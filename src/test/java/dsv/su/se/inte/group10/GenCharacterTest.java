@@ -35,4 +35,9 @@ public class GenCharacterTest {
     public void testGenCharacterGetCurrentHP(){
         assertEquals(1, genChar.getCurrentHP());
     }
+
+    @Test
+    public void testGenCharacterGetCurrentHP2(){
+        assertEquals(2, genChar.getCurrentHP());
+    }
 }
