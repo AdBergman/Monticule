@@ -16,5 +16,11 @@ public class MapScreenTest {
     	MapScreen ms = new MapScreen();
     	assertEquals(600, ms.getWidth());
     }
+    
+    @Test
+    public void testMapHeight() {
+    	MapScreen ms = new MapScreen();
+    	assertEquals(600, ms.getHeight());
+    }
 
 }
