@@ -21,5 +21,8 @@ public class MapScreen {
 	public int getHeight() {
 		return height;
 	}
-
+	
+	public int getNumberOfExits() {
+		return 1;
+	}
 }
