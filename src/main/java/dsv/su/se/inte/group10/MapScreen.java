@@ -3,13 +3,15 @@ package dsv.su.se.inte.group10;
 public class MapScreen {
 	
 	private int width;
+	private int height;
 	
 	public MapScreen() {
-		this(600); // default size for map screen.
+		this(600, 600); // default size for map screen.
 	}
 	
-	public MapScreen(int width) {
+	public MapScreen(int width, int height) {
 		this.width = width;
+		this.height = height;
 	}
 	
 	public int getWidth() {
@@ -17,7 +19,7 @@ public class MapScreen {
 	}
 	
 	public int getHeight() {
-		return 600;
+		return height;
 	}
 
 }
