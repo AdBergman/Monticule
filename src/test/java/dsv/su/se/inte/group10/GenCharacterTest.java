@@ -35,6 +35,11 @@ public class GenCharacterTest {
     public void testGenCharacterGetCurrentHP(){
         assertEquals(1, genChar.getCurrentHP());
     }
+    
+    @Test
+    public void testCharacterHasPosition() {
+    	assertNotNull(genChar.getPosition());
+    }
 
     @Test
     public void testGenCharacterMoveUnit(){
