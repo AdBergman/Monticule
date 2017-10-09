@@ -39,5 +39,10 @@ public class MapScreenTest {
     public void testMapScreenHasExit() {
     	assertTrue(ms.getNumberOfExits() > 0);
     }
+    
+    @Test
+    public void testMapScreenType() {
+    	assertTrue(ms.getMapScreenType() >= 0 && ms.getMapScreenType() <= 3);
+    }
 
 }
