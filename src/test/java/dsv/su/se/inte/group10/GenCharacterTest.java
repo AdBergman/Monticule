@@ -43,7 +43,7 @@ public class GenCharacterTest {
     
     @Test
     public void testGenCharacterMoveUp() {
-    	Position prePos = genChar.getPosition();
+    	Position prePos = new Position(10,10);
     	genChar.moveUp();
     	assertTrue(prePos.getY() > genChar.getPosition().getY());
     }

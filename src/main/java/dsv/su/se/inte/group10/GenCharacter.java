@@ -6,6 +6,7 @@ package dsv.su.se.inte.group10;
 
 public class GenCharacter {
 	
+	private int speed = 10;
 	private Position position = new Position(10, 10);
 
     public int getDamage(){
@@ -22,6 +23,22 @@ public class GenCharacter {
 
     public int getCurrentHP(){
         return 1;
+    }
+    
+    public void moveUp() {
+    	this.position.moveY(-speed);
+    }
+    
+    public void moveDown() {
+    	this.position.moveY(speed);
+    }
+    
+    public void moveLeft() {
+    	this.position.moveX(-speed);
+    }
+    
+    public void moveRight() {
+    	this.position.moveX(speed);
     }
     
     public Position getPosition() {

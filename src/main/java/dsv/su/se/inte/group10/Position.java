@@ -17,5 +17,13 @@ class Position {
 	public int getY() {
 		return yPos;
 	}
+	
+	public void moveY(int i) {
+		this.yPos = yPos + i;
+	}
+	
+	public void moveX(int i) {
+		this.yPos = yPos + i;
+	}
 
 }
