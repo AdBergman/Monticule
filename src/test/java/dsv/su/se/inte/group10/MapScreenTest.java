@@ -42,9 +42,9 @@ public class MapScreenTest {
 
     @Test
     public void testAddObject() {
-        GenCharacter genChar = new GenCharacter();
-        ms.addObject(genChar, 5, 5);
-        assertEquals(genChar, ms.getMap()[5][5]);
+        Character player = new Player();
+        ms.addObject(player, 5, 5);
+        assertEquals(player, ms.getMap()[5][5]);
     }
 
     @Test

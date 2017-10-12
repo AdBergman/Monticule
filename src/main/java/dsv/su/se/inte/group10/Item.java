@@ -4,7 +4,6 @@ public /* abstract */ class Item {
 	
 	private int weight;
 	private int value;
-	private int damage;
 
 	public Item() {
 		this(0, 0);
