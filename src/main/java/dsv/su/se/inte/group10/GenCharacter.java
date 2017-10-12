@@ -13,8 +13,19 @@ public class GenCharacter {
 	private int maxHP;
 	private int currentHP;
 	
-	private int speed = 10;
-	private int damage = 10;
+	private int speed;
+	private int damage;
+
+	public GenCharacter() {
+		this(DEFAULT_HP, DEFAULT_SPEED, DEFAULT_DAMAGE);
+	}
+	
+	public GenCharacter(int maxHP, int speed, int damage) {
+		this.maxHP = maxHP;
+		this.currentHP = maxHP;
+		this.speed = speed;
+		this.damage = damage;
+	}
 	
 //	private Position position = new Position(10, 10);
 
