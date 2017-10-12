@@ -14,7 +14,7 @@ public class Consumable extends Item {
 	}
 
 	public ArrayList<Effect> getEffect(){
-		return new ArrayList<>(effectList);
+		return new ArrayList<Effect>(effectList);
 	}
 	
 }
