@@ -1,8 +1,20 @@
 package dsv.su.se.inte.group10;
 
-public class Consumable extends Item {
+import java.util.ArrayList;
 
-	public Object getEffect(){
-		return new Object();
+public class Consumable extends Item {
+	
+	private ArrayList<Effect> effectList;
+	
+	public Consumable(String name, int weight, int value, Effect... effects) {
+		super(name, weight, value);
+		for(Effect e : effects) {
+			this.effectList.add(e);
+		}
 	}
+
+	public ArrayList<Effect> getEffect(){
+		return new ArrayList<>(effectList);
+	}
+	
 }
