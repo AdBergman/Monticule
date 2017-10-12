@@ -9,12 +9,12 @@ public class MapScreenTest {
     
     @Test
     public void testMapWidth() {
-    	assertEquals(800, ms.getWidth());
+    	assertEquals(10, ms.getWidth());
     }
     
     @Test
     public void testMapHeight() {
-    	assertEquals(600, ms.getHeight());
+    	assertEquals(10, ms.getHeight());
     }
     
     @Test
@@ -26,8 +26,8 @@ public class MapScreenTest {
     
     @Test
     public void testMapHeightAndWidthWithoutInput() {
-    	assertEquals(800, ms.getWidth());
-    	assertEquals(600, ms.getHeight());
+    	assertEquals(10, ms.getWidth());
+    	assertEquals(10, ms.getHeight());
     }
     
     @Test
