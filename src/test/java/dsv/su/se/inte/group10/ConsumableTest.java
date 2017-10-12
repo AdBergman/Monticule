@@ -5,7 +5,7 @@ import static org.junit.Assert.*;
 
 public class ConsumableTest {
 
-	Consumable cs = new Consumable("Life potion", 1, 15, new Effect(EffectType.currentHP, 10));
+	Consumable cs = new Consumable("Life potion", 1, 15, new Effect(StatType.currentHP, 10));
 	
 	@Test
 	public void testHasEffect() {
