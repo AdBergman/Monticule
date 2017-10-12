@@ -1,10 +1,13 @@
 package dsv.su.se.inte.group10;
 
 import org.junit.Test;
+
+import dsv.su.se.inte.group10.ItemEquipable.EquipmentType;
+
 import static org.junit.Assert.*;
 public class ItemEquipableTest {
 	
-	ItemEquipable ie = new ItemEquipable("Sword", 1, 2, 3);
+	ItemEquipable ie = new ItemEquipable("Sword", 1, 2, 3, EquipmentType.MAINHAND );
 			
 	@Test
 	public void testCreateItemEquipable() {
@@ -13,7 +16,7 @@ public class ItemEquipableTest {
 	
 	@Test
 	public void testCreateItemEquipableWeightValue() {
-		ItemEquipable ie2 = new ItemEquipable("Sword", 1, 2, 3, 4, 5);
+		ItemEquipable ie2 = new ItemEquipable("Sword", 1, 2, 3, EquipmentType.MAINHAND, 4, 5);
 		assertNotNull(ie2);
 	}
 	
@@ -31,5 +34,12 @@ public class ItemEquipableTest {
 	public void testAttributeDamage() {
 		assertEquals(3, ie.getDamage());
 	}
+	
+	@Test
+	public void testEquipmentType() {
+		assertEquals(EquipmentType.MAINHAND, ie.getEquipmentType());
+		
+	}
+	
 
 }
