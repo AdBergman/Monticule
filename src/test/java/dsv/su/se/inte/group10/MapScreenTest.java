@@ -34,7 +34,27 @@ public class MapScreenTest {
     public void testMapScreenHasExit() {
     	assertTrue(ms.getNumberOfExits() > 0);
     }
-    
+
+    @Test
+    public void testGetMap() {
+        assertNotNull(ms.getMap());
+    }
+
+    @Test
+    public void testAddObject() {
+        GenCharacter genChar = new GenCharacter();
+        ms.addObject(genChar, 5, 5);
+        assertEquals(genChar, ms.getMap()[5][5]);
+    }
+
+    @Test
+    public void testRemoveObject() {
+        ms.getMap()[5][5] = new Object();
+        Object obj = ms.removeObject(5, 5);
+        assertNotEquals(obj, ms.getMap()[5][5]);
+    }
+
+
 //    @Test
 //    public void testMapScreenType() {
 //    	assertTrue(ms.getMapScreenType() >= 0 && ms.getMapScreenType() <= 3);
