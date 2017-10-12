@@ -4,17 +4,23 @@ public /* abstract */ class Item {
 	
 	private int weight;
 	private int value;
+	private String name;
 
-	public Item() {
-		this(0, 0);
+	public Item(String name) {
+		this(name, 0, 0);
 	}
 	
-	public Item(int weight, int value) {
+	public Item(String name, int weight, int value) {
 		if(weight < 0 || value < 0) {
 			throw new IllegalArgumentException();
 		}
 		this.weight = weight;
 		this.value = value;
+		this.name = name;
+	}
+	
+	public String getName() {
+		return this.name;
 	}
 
     public int getWeight(){
