@@ -6,11 +6,6 @@ import static org.junit.Assert.*;
 public class MapScreenTest {
 	
 	MapScreen ms = new MapScreen();
-	
-    @Test
-    public void testMapExists() {
-        assertNotNull(ms);
-    }
     
     @Test
     public void testMapWidth() {
@@ -40,9 +35,9 @@ public class MapScreenTest {
     	assertTrue(ms.getNumberOfExits() > 0);
     }
     
-    @Test
-    public void testMapScreenType() {
-    	assertTrue(ms.getMapScreenType() >= 0 && ms.getMapScreenType() <= 3);
-    }
+//    @Test
+//    public void testMapScreenType() {
+//    	assertTrue(ms.getMapScreenType() >= 0 && ms.getMapScreenType() <= 3);
+//    }
 
 }

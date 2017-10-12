@@ -2,35 +2,38 @@ package dsv.su.se.inte.group10;
 
 public class MapScreen {
 	
-	private static final int DEFAULT_WIDTH = 800;
-	private static final int DEFAULT_HEIGHT = 600;
+	private static final int DEFAULT_WIDTH = 10;
+	private static final int DEFAULT_HEIGHT = 10;
 	
-	private int width;
-	private int height;
-	private int mapScreenType = 0;
+	private Object[][] map;
+	
+//	private int mapScreenType = 0;
 	
 	public MapScreen() {
 		this(DEFAULT_WIDTH, DEFAULT_HEIGHT); // default size for map screen.
 	}
 	
 	public MapScreen(int width, int height) {
-		this.width = width;
-		this.height = height;
+		if(width <= 0 || height <= 0) {
+			throw new IllegalArgumentException();
+		}
+		assert(width > 0 && height > 0);
+		this.map = new Object[width][height];
 	}
 	
 	public int getWidth() {
-		return width;
+		return map.length;
 	}
 	
 	public int getHeight() {
-		return height;
+		return map[0].length;
 	}
 	
 	public int getNumberOfExits() {
 		return 1;
 	}
 	
-	public int getMapScreenType() {
-		return mapScreenType;
-	}
+//	public int getMapScreenType() {
+//		return mapScreenType;
+//	}
 }
