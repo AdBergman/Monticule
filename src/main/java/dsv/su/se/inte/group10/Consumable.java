@@ -8,12 +8,13 @@ public class Consumable extends Item {
 	
 	public Consumable(String name, int weight, int value, Effect... effects) {
 		super(name, weight, value);
+		effectList = new ArrayList<Effect>();
 		for(Effect e : effects) {
-			this.effectList.add(e);
+			effectList.add(e);
 		}
 	}
 
-	public ArrayList<Effect> getEffect(){
+	public ArrayList<Effect> getEffects(){
 		return new ArrayList<Effect>(effectList);
 	}
 	
