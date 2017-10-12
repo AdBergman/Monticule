@@ -1,10 +1,8 @@
 package dsv.su.se.inte.group10;
 
 import org.junit.Test;
-
-import dsv.su.se.inte.group10.ItemEquipable.EquipmentType;
-
 import static org.junit.Assert.*;
+
 public class ItemEquipableTest {
 
 	Effect dmg = new Effect(StatType.damage, 999);
