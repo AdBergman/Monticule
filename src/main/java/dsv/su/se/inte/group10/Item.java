@@ -11,7 +11,7 @@ public /* abstract */ class Item {
 	}
 	
 	public Item(int weight, int value) {
-		if(weight <= 0 || value <= 0) {
+		if(weight < 0 || value < 0) {
 			throw new IllegalArgumentException();
 		}
 		this.weight = weight;

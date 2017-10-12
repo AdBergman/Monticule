@@ -36,7 +36,7 @@ public abstract class Character {
     }
 
     public int getCurrentHP(){
-        return 1;
+        return this.currentHP;
     }
     
 //    public void moveUp() {

@@ -9,63 +9,30 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class PlayerTest {
-    Character player = new Player("");
+    Character player = new Player();
 
     @Test
-    public void testGenCharacterGetDamage(){
-        assertEquals(1, player.getDamage());
+    public void testPlayerGetDamage(){
+        assertEquals(10, player.getDamage());
     }
 
     @Test
-    public void testGenCharacterGetSpeed(){
-        assertEquals(1, player.getSpeed());
+    public void testPlayerGetSpeed(){
+        assertEquals(10, player.getSpeed());
     }
 
     @Test
-    public void testGenCharacterGetMaxHP(){
-        assertEquals(1, player.getMaxHP());
+    public void testPlayerGetMaxHP(){
+        assertEquals(100, player.getMaxHP());
     }
 
     @Test
-    public void testGenCharacterGetCurrentHP(){
-        assertEquals(1, player.getCurrentHP());
+    public void testPlayerCurrentHP(){
+        assertEquals(100, player.getCurrentHP());
     }
-    
-//    @Test
-//    public void testGenCharacterHasPosition() {
-//    	assertNotNull(genChar.getPosition());
-//    }
-//    
-//    @Test
-//    public void testGenCharacterMoveUp() {
-//    	Position prePos = new Position(10,10);
-//    	genChar.moveUp();
-//    	assertTrue(prePos.getY() > genChar.getPosition().getY());
-//    }
-//    
-//    @Test
-//    public void testGenCharacterMoveDown() {
-//    	Position prePos = new Position(10,10);
-//    	genChar.moveDown();
-//    	assertTrue(prePos.getY() < genChar.getPosition().getY());
-//    }
-//    
-//    @Test
-//    public void testGenCharacterMoveLeft() {
-//    	Position prePos = new Position(10,10);
-//    	genChar.moveLeft();
-//    	assertTrue(prePos.getX() > genChar.getPosition().getX());
-//    }
-//    
-//    @Test
-//    public void testGenCharacterMoveRight() {
-//    	Position prePos = new Position(10,10);
-//    	genChar.moveRight();
-//    	assertTrue(prePos.getX() < genChar.getPosition().getX());
-//    }
 
     @Test
-    public void testGenCharacterMoveUnit(){
+    public void testPlayerMoveUnit(){
         //TODO: once character has position
     }
 

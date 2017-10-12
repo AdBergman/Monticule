@@ -15,7 +15,7 @@ public class MapScreen {
 	
 	public MapScreen(int width, int height) {
 		if(width <= 0 || height <= 0) {
-			throw new IllegalArgumentException();
+			throw new IllegalArgumentException("Arguments cannot be lower than zero (0).");
 		}
 		assert(width > 0 && height > 0);
 		this.map = new Object[width][height];

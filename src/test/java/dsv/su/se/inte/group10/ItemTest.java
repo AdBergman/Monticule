@@ -28,8 +28,8 @@ public class ItemTest {
     }
     
     @Test
-    public void testItemVeightWithInput(){
+    public void testItemWeightWithInput(){
     	Item item = new Item(20, 10);
-        assertEquals(20, item.getValue());
+        assertEquals(20, item.getWeight());
     }
 }

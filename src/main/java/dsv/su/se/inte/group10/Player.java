@@ -15,4 +15,9 @@ public class Player extends Character {
 		this.name = name;
 	}
 	
+	public Player(String name, int maxHP, int speed, int damage) {
+		super(maxHP, speed, damage);
+		this.name = name;
+	}
+	
 }
