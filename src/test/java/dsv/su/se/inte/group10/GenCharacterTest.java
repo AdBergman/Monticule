@@ -12,11 +12,6 @@ public class GenCharacterTest {
     GenCharacter genChar = new GenCharacter();
 
     @Test
-    public void testGenCharacterCreation() {
-        assertNotNull("GenCharacter could not be created", genChar);
-    }
-
-    @Test
     public void testGenCharacterGetDamage(){
         assertEquals(1, genChar.getDamage());
     }
@@ -36,38 +31,38 @@ public class GenCharacterTest {
         assertEquals(1, genChar.getCurrentHP());
     }
     
-    @Test
-    public void testGenCharacterHasPosition() {
-    	assertNotNull(genChar.getPosition());
-    }
-    
-    @Test
-    public void testGenCharacterMoveUp() {
-    	Position prePos = new Position(10,10);
-    	genChar.moveUp();
-    	assertTrue(prePos.getY() > genChar.getPosition().getY());
-    }
-    
-    @Test
-    public void testGenCharacterMoveDown() {
-    	Position prePos = new Position(10,10);
-    	genChar.moveDown();
-    	assertTrue(prePos.getY() < genChar.getPosition().getY());
-    }
-    
-    @Test
-    public void testGenCharacterMoveLeft() {
-    	Position prePos = new Position(10,10);
-    	genChar.moveLeft();
-    	assertTrue(prePos.getX() > genChar.getPosition().getX());
-    }
-    
-    @Test
-    public void testGenCharacterMoveRight() {
-    	Position prePos = new Position(10,10);
-    	genChar.moveRight();
-    	assertTrue(prePos.getX() < genChar.getPosition().getX());
-    }
+//    @Test
+//    public void testGenCharacterHasPosition() {
+//    	assertNotNull(genChar.getPosition());
+//    }
+//    
+//    @Test
+//    public void testGenCharacterMoveUp() {
+//    	Position prePos = new Position(10,10);
+//    	genChar.moveUp();
+//    	assertTrue(prePos.getY() > genChar.getPosition().getY());
+//    }
+//    
+//    @Test
+//    public void testGenCharacterMoveDown() {
+//    	Position prePos = new Position(10,10);
+//    	genChar.moveDown();
+//    	assertTrue(prePos.getY() < genChar.getPosition().getY());
+//    }
+//    
+//    @Test
+//    public void testGenCharacterMoveLeft() {
+//    	Position prePos = new Position(10,10);
+//    	genChar.moveLeft();
+//    	assertTrue(prePos.getX() > genChar.getPosition().getX());
+//    }
+//    
+//    @Test
+//    public void testGenCharacterMoveRight() {
+//    	Position prePos = new Position(10,10);
+//    	genChar.moveRight();
+//    	assertTrue(prePos.getX() < genChar.getPosition().getX());
+//    }
 
     @Test
     public void testGenCharacterMoveUnit(){

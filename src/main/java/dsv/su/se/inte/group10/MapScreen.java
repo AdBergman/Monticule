@@ -4,16 +4,6 @@ public class MapScreen {
 	
 	private static final int DEFAULT_WIDTH = 10;
 	private static final int DEFAULT_HEIGHT = 10;
-	private static final int DEFAULT_MATRIX[][] = {{ 0,0,0,0,0,0,0,0,0,0 },
-												{ 0,1,1,1,1,1,1,1,1,0 },
-												{ 0,1,1,1,1,1,1,1,1,0 },
-												{ 0,1,1,1,1,1,1,1,1,0 },
-												{ 0,1,1,1,1,1,1,1,1,0 },
-												{ 0,1,1,1,1,1,1,1,1,0 },
-												{ 0,1,1,1,1,1,1,1,1,0 },
-												{ 0,1,1,1,1,1,1,1,1,0 },
-												{ 0,1,1,1,1,1,1,1,1,0 },
-												{ 0,0,0,0,0,0,0,0,0,0 }};
 	
 	private Object[][] map;
 	

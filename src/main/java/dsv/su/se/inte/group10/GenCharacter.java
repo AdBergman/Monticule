@@ -6,8 +6,17 @@ package dsv.su.se.inte.group10;
 
 public class GenCharacter {
 	
+	private final static int DEFAULT_HP = 100;
+	private final static int DEFAULT_SPEED = 10;
+	private final static int DEFAULT_DAMAGE = 10;
+	
+	private int maxHP;
+	private int currentHP;
+	
 	private int speed = 10;
-	private Position position = new Position(10, 10);
+	private int damage = 10;
+	
+//	private Position position = new Position(10, 10);
 
     public int getDamage(){
         return 1;
@@ -25,23 +34,23 @@ public class GenCharacter {
         return 1;
     }
     
-    public void moveUp() {
-    	this.position.moveY(-speed);
-    }
-    
-    public void moveDown() {
-    	this.position.moveY(speed);
-    }
-    
-    public void moveLeft() {
-    	this.position.moveX(-speed);
-    }
-    
-    public void moveRight() {
-    	this.position.moveX(speed);
-    }
-    
-    public Position getPosition() {
-    	return this.position;
-    }
+//    public void moveUp() {
+//    	this.position.moveY(-speed);
+//    }
+//    
+//    public void moveDown() {
+//    	this.position.moveY(speed);
+//    }
+//    
+//    public void moveLeft() {
+//    	this.position.moveX(-speed);
+//    }
+//    
+//    public void moveRight() {
+//    	this.position.moveX(speed);
+//    }
+//    
+//    public Position getPosition() {
+//    	return this.position;
+//    }
 }
