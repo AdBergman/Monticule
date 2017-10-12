@@ -13,8 +13,15 @@ public class Consumable extends Item {
 		}
 	}
 
-	public ArrayList<Effect> getEffect(){
+	public ArrayList<Effect> getEffectList(){
 		return new ArrayList<Effect>(effectList);
+	}
+	
+	public Effect getEffect(int index){
+		if(index < 0 || index >= effectList.size()) {
+			throw new IllegalArgumentException("Argument must be greater than or equal to zero (0), and smaller than effectList.size().");
+		}
+		return effectList.get(index);
 	}
 	
 }
