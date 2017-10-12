@@ -4,7 +4,9 @@ public class MapScreen {
 	
 	private static final int DEFAULT_WIDTH = 10;
 	private static final int DEFAULT_HEIGHT = 10;
-	
+
+
+
 	private Object[][] map;
 	
 //	private int mapScreenType = 0;
@@ -32,6 +34,21 @@ public class MapScreen {
 	public int getNumberOfExits() {
 		return 1;
 	}
+
+	protected Object[][] getMap() {
+		return map;
+	}
+
+	public void addObject(Object obj, int x, int y){
+		map[x][y] = obj;
+	}
+
+	public Object removeObject(int x, int y){
+		Object obj = map[x][y];
+		map[x][y] = null;
+		return obj;
+	}
+
 	
 //	public int getMapScreenType() {
 //		return mapScreenType;
