@@ -3,12 +3,12 @@ package dsv.su.se.inte.group10;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-public class ItemEquipableTest {
+public class ItemEquippableTest {
 
 	Stat dmg = new Stat(StatType.damage, 999);
 	Stat maxHP = new Stat(StatType.maxHP, 99);
 	Stat speed = new Stat(StatType.speed, 9);
-	ItemEquipable item = new ItemEquipable("Cheat!", EquipmentType.MAINHAND, dmg, maxHP, speed);
+	ItemEquippable item = new ItemEquippable("Cheat!", EquipmentType.MAINHAND, dmg, maxHP, speed);
 
 	@Test
 	public void testCreateItemEquipable() {
@@ -17,7 +17,7 @@ public class ItemEquipableTest {
 
 	@Test
 	public void testCreateItemEquipableWeightValue() {
-		ItemEquipable item2 = new ItemEquipable("Pillow", EquipmentType.OFFHAND, 1, 1);
+		ItemEquippable item2 = new ItemEquippable("Pillow", EquipmentType.OFFHAND, 1, 1);
 		assertNotNull(item2);
 	}
 
