@@ -22,4 +22,5 @@ public class BackpackTest {
 	public void testBackpackWeight() {
 		assertEquals(20, bp.getWeightLimit());
 	}
+
 }

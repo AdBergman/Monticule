@@ -30,17 +30,17 @@ public class ItemConsumableTest {
 	}
 	
 	@Test
-	public void testLifePotionEffect1Type() {
+	public void testLifePotionStat1Type() {
 		assertEquals(StatType.currentHP, cs.getStats().get(0).getType());
 	}
 	
 	@Test
-	public void testLifePotionEffect1Value() {
+	public void testLifePotionStat1Value() {
 		assertEquals(50, cs.getStats().get(0).getValue());
 	}
 	
 	@Test
-	public void testLifePotionNumberOfEffects() {
+	public void testLifePotionNumberOfStats() {
 		assertEquals(2, cs.getStats().size());
 	}
 }
