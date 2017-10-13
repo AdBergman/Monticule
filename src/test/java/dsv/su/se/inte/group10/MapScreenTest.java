@@ -36,22 +36,25 @@ public class MapScreenTest {
     }
 
     @Test
-    public void testGetMap() {
-        assertNotNull(ms.getMap());
+    public void testGetTile() {    //:TODO needs to be fixed
+        Object obj = new Object();
+        ms.addObject(obj, 4, 4);
+        assertNotNull(ms.getTile(4,4));
     }
 
     @Test
     public void testAddObject() {
         Character player = new Player();
         ms.addObject(player, 5, 5);
-        assertEquals(player, ms.getMap()[5][5]);
+        assertEquals(player, ms.getTile(5,5));
     }
 
     @Test
-    public void testRemoveObject() {
-        ms.getMap()[5][5] = new Object();
-        Object obj = ms.removeObject(5, 5);
-        assertNotEquals(obj, ms.getMap()[5][5]);
+    public void testRemoveObject() {   //:TODO needs to be fixed
+        Object obj = new Object();
+        ms.addObject(obj, 3, 3);
+        ms.removeObject(3, 3);
+        assertNotEquals(obj, ms.getTile(3,3));
     }
 
 
