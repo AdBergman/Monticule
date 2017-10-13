@@ -5,6 +5,7 @@ public class Player extends Character {
 	private static final String DEFAULT_NAME = "Kim";
 	
 	private String name;
+	private Backpack backpack;
 	
 	public Player() {
 		this(DEFAULT_NAME);
@@ -13,6 +14,7 @@ public class Player extends Character {
 	public Player(String name) {
 		super();
 		this.name = name;
+		
 	}
 	
 	public Player(String name, int maxHP, int speed, int damage) {

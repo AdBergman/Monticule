@@ -23,9 +23,13 @@ public class BackpackTest {
 	public void testBackpackWeight() {
 		assertEquals(20, bp.getWeightLimit());
 	}
+<<<<<<< HEAD
 	
 	@Test
 	public void testAddItem() {
 		
 	}
+=======
+
+>>>>>>> origin/master
 }
