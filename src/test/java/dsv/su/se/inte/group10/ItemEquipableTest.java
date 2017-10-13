@@ -1,43 +1,77 @@
 package dsv.su.se.inte.group10;
 
 import org.junit.Test;
-
-import dsv.su.se.inte.group10.ItemEquipable.EquipmentType;
-
 import static org.junit.Assert.*;
+
 public class ItemEquipableTest {
 
-	ItemEquipable ie = new ItemEquipable("Sword", 1, 2, 3, EquipmentType.MAINHAND );
+	Stat dmg = new Stat(StatType.damage, 999);
+	Stat maxHP = new Stat(StatType.maxHP, 99);
+	Stat speed = new Stat(StatType.speed, 9);
+	ItemEquipable item = new ItemEquipable("Cheat!", EquipmentType.MAINHAND, dmg, maxHP, speed);
 
 	@Test
 	public void testCreateItemEquipable() {
-		assertNotNull(ie);
+		assertNotNull(item);
 	}
 
 	@Test
 	public void testCreateItemEquipableWeightValue() {
-		ItemEquipable ie2 = new ItemEquipable("Sword", 1, 2, 3, EquipmentType.MAINHAND, 4, 5);
-		assertNotNull(ie2);
-	}
-
-	@Test
-	public void testAttributeMaxHP() {
-		assertEquals(1, ie.getMaxHP());
-	}
-
-	@Test
-	public void testAttributeSpeed() {
-		assertEquals(2, ie.getSpeed());
+		ItemEquipable item2 = new ItemEquipable("Pillow", EquipmentType.OFFHAND, 1, 1);
+		assertNotNull(item2);
 	}
 
 	@Test
 	public void testAttributeDamage() {
-		assertEquals(3, ie.getDamage());
+		for (Stat s: item.getStats()) {
+			if (s.getType().equals(StatType.damage))
+				assertEquals(dmg, s);
+		}
+	}
+
+	@Test
+	public void testAttributeDamageValue() {
+		for (Stat s: item.getStats()) {
+			if (s.getType().equals(StatType.damage))
+				assertEquals(dmg.getValue(), s.getValue());
+		}
+	}
+
+	@Test
+	public void testAttributeMaxHP() {
+		for (Stat s: item.getStats()) {
+			if (s.getType().equals(StatType.maxHP))
+				assertEquals(maxHP, s);
+		}
+	}
+
+	@Test
+	public void testAttributeMaxHPValue() {
+		for (Stat s: item.getStats()) {
+			if (s.getType().equals(StatType.maxHP))
+				assertEquals(maxHP.getValue(), s.getValue());
+		}
+	}
+
+	@Test
+	public void testAttributeSpeed() {
+		for (Stat s: item.getStats()) {
+			if (s.getType().equals(StatType.speed))
+				assertEquals(speed, s);
+		}
+	}
+
+	@Test
+	public void testAttributeSpeedValue() {
+		for (Stat s: item.getStats()) {
+			if (s.getType().equals(StatType.speed))
+				assertEquals(speed.getValue(), s.getValue());
+		}
 	}
 
 	@Test
 	public void testEquipmentType() {
-		assertEquals(EquipmentType.MAINHAND, ie.getEquipmentType());
+		assertEquals(EquipmentType.MAINHAND, item.getEquipmentType());
 
 	}
 

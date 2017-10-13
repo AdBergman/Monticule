@@ -13,7 +13,7 @@ public class Stat {
 		this.value = value;
 	}
 	
-	public StatType getEffectType() {
+	public StatType getType() {
 		return type;
 	}
 	

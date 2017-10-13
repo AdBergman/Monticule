@@ -1,6 +1,7 @@
 package dsv.su.se.inte.group10;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Consumable extends Item {
 	
@@ -9,9 +10,7 @@ public class Consumable extends Item {
 	public Consumable(String name, int weight, int value, Stat...stats) {
 		super(name, weight, value);
 		statList = new ArrayList<Stat>();
-		for(Stat s : stats) {
-			statList.add(s);
-		}
+		statList.addAll(Arrays.asList(stats));
 	}
 
 	public ArrayList<Stat> getEffects(){

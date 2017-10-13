@@ -1,45 +1,34 @@
 package dsv.su.se.inte.group10;
 
-public class ItemEquipable extends Item{
+import java.util.ArrayList;
+import java.util.Arrays;
 
-	protected enum EquipmentType{
-		MAINHAND, OFFHAND, HELMET, CHESTPLATE, LEGGINGS, BOOTS;
-	}
+public class ItemEquipable extends Item {
 
-	private int maxHP;
-	private int speed;
-	private int damage;
-	private EquipmentType et;
 
-	public ItemEquipable(String name, int maxHP, int speed, int damage, EquipmentType et) {
+	private EquipmentType eqType;
+	private ArrayList<Stat> statList;
+
+	public ItemEquipable(String name, EquipmentType et, Stat... stats) {
 		super(name);
-		this.maxHP = maxHP;
-		this.speed = speed;
-		this.damage = damage;
-		this.et = et;
+		this.eqType = et;
+		statList = new ArrayList<Stat>();
+		statList.addAll(Arrays.asList(stats));
 	}
 
-	public ItemEquipable(String name, int maxHP, int speed, int damage, EquipmentType et, int weight, int value) {
+	public ItemEquipable(String name, EquipmentType et, int weight, int value, Stat... stats) {
 		super(name, weight, value);
-		this.maxHP = maxHP;
-		this.speed = speed;
-		this.damage = damage;
-		this.et = et;
-	}
-
-	public int getMaxHP() {
-		return this.maxHP;
-	}
-
-	public int getSpeed() {
-		return this.speed;
-	}
-
-	public int getDamage() {
-		return this.damage;
+		this.eqType = et;
+		statList = new ArrayList<Stat>();
+		statList.addAll(Arrays.asList(stats));
 	}
 
 	public EquipmentType getEquipmentType() {
-		return this.et;
+		return this.eqType;
 	}
+
+	public ArrayList<Stat> getStats(){
+		return new ArrayList<Stat>(statList);
+	}
+	
 }
