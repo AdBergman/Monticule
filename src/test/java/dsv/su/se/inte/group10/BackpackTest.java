@@ -7,6 +7,7 @@ public class BackpackTest {
 	
 	Backpack bp = new Backpack(10,20);
 	
+	
 	@Test
 	public void testIsBackpack() {
 		assertNotNull(bp);
@@ -21,5 +22,10 @@ public class BackpackTest {
 	@Test
 	public void testBackpackWeight() {
 		assertEquals(20, bp.getWeightLimit());
+	}
+	
+	@Test
+	public void testAddItem() {
+		
 	}
 }
