@@ -4,18 +4,18 @@ import java.util.ArrayList;
 
 public class Consumable extends Item {
 	
-	private ArrayList<Effect> effectList;
+	private ArrayList<Stat> statList;
 	
-	public Consumable(String name, int weight, int value, Effect... effects) {
+	public Consumable(String name, int weight, int value, Stat...stats) {
 		super(name, weight, value);
-		effectList = new ArrayList<Effect>();
-		for(Effect e : effects) {
-			effectList.add(e);
+		statList = new ArrayList<Stat>();
+		for(Stat s : stats) {
+			statList.add(s);
 		}
 	}
 
-	public ArrayList<Effect> getEffects(){
-		return new ArrayList<Effect>(effectList);
+	public ArrayList<Stat> getEffects(){
+		return new ArrayList<Stat>(statList);
 	}
 	
 }

@@ -6,11 +6,10 @@ public abstract class Character {
 	private final static int DEFAULT_SPEED = 10;
 	private final static int DEFAULT_DAMAGE = 10;
 	
-	private int maxHP;
-	private int currentHP;
-	
-	private int speed;
-	private int damage;
+	private Stat maxHP;
+	private Stat currentHP;
+	private Stat speed;
+	private Stat damage;
 
 	public Character() {
 		this(DEFAULT_HP, DEFAULT_SPEED, DEFAULT_DAMAGE);
@@ -20,26 +19,26 @@ public abstract class Character {
 		if(maxHP <= 0 || speed <= 0 || damage <= 0) {
 			throw new IllegalArgumentException("Arguments cannot be lower than one (1).");
 		}
-		this.maxHP = maxHP;
-		this.currentHP = maxHP;
-		this.speed = speed;
-		this.damage = damage;
+		this.maxHP = new Stat(StatType.maxHP, maxHP);
+		this.currentHP = new Stat(StatType.currentHP, maxHP);
+		this.speed = new Stat(StatType.speed, speed);
+		this.damage = new Stat(StatType.damage, damage);
 	}
 
     public int getDamage(){
-        return this.damage;
+        return this.damage.getValue();
     }
 
     public int getSpeed(){
-        return this.speed;
+        return this.speed.getValue();
     }
 
     public int getMaxHP(){
-        return this.maxHP;
+        return this.maxHP.getValue();
     }
 
     public int getCurrentHP(){
-        return this.currentHP;
+        return this.currentHP.getValue();
     }
     
 //    public void moveUp() {

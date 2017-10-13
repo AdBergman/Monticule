@@ -1,5 +1,5 @@
 package dsv.su.se.inte.group10;
 
-enum StatType {
+public enum StatType {
 	maxHP, currentHP, speed, damage;
 }

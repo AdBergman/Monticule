@@ -1,11 +1,11 @@
 package dsv.su.se.inte.group10;
 
-public class Effect {
+public class Stat {
 	
 	private StatType type; // kan vara maxHP, currentHP, speed, damage
 	private int value; // måste vara >0
 	
-	public Effect(StatType type, int value) {
+	public Stat(StatType type, int value) {
 		if(value <= 0) {
 			throw new IllegalArgumentException("Too low");
 		}
