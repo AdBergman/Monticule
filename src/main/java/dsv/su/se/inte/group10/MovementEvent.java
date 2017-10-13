@@ -14,7 +14,7 @@ public class MovementEvent extends Event {
 	protected void moveDown(MapScreen m, Player p) {
 		MapScreen.Coordinate coord = m.getCoordinate(p);
 		
-		if(coord.y+1 <= m.map[0].length) {
+		if(coord.y+1 <= m.getHeight()) {
 			m.removeObject(coord.x, coord.y);
 			m.addObject(p, coord.x, coord.y+1);
 		}
@@ -32,7 +32,7 @@ public class MovementEvent extends Event {
 	protected void moveRight(MapScreen m, Player p) {
 		MapScreen.Coordinate coord = m.getCoordinate(p);
 		
-		if(coord.x+1 <= m.map.length) {
+		if(coord.x+1 <= m.getWidth()) {
 			m.removeObject(coord.x, coord.y);
 			m.addObject(p, coord.x+1, coord.y);
 		}

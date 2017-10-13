@@ -5,7 +5,7 @@ public class MapScreen {
 	private static final int DEFAULT_WIDTH = 10;
 	private static final int DEFAULT_HEIGHT = 10;
 
-	protected Object[][] map;
+	protected Object[][] map; //Is Protected for testing purposes
 	
 //	private int mapScreenType = 0;
 	
@@ -70,6 +70,9 @@ public class MapScreen {
 	}
 
 	protected Object getTile(int x, int y) {
+		if(x < 0 || x > this.getWidth() || y < 0 || y > this.getHeight()) {
+			throw new IllegalArgumentException("Tile coordinates OutOfBounds");
+		}
 		return map[x][y];
 	}
 
