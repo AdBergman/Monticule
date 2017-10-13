@@ -35,8 +35,11 @@ public class MapScreen {
 		return 1;
 	}
 
-	protected Object[][] getMap() {
-		return map;
+	protected Object getTile(int x, int y) {
+		if(x < 0 || x > this.getWidth() || y < 0 || y > this.getHeight()) {
+			throw new IllegalArgumentException("Tile coordinates OutOfBounds");
+		}
+		return map[x][y];
 	}
 
 	public void addObject(Object obj, int x, int y){
