@@ -5,10 +5,10 @@ import java.util.Arrays;
 
 public class Backpack {
 	
-	public ArrayList<Item> itemList;
+	private ArrayList<Item> itemList;
 	
-	public int itemLimit;
-	public int weightLimit;
+	private int itemLimit;
+	private int weightLimit;
 	
 	public Backpack(int itemLimit, int weightLimit) {
 		this.itemLimit = itemLimit;
@@ -18,7 +18,6 @@ public class Backpack {
 	
 	public void addItem(Item item) {
 		itemList.add(item);
-		
 	}
 	
 	public void removeItem(Item item) {
