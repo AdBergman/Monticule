@@ -1,9 +1,5 @@
 package dsv.su.se.inte.group10;
 
-/**
- * General character will be an abstract class for all characters in the game.
- * This is a temporary template test class that should be applied to future sub-classes to GenChar.
- */
 
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -17,7 +13,7 @@ public class ItemTest {
     }
     
     @Test
-    public void testItemVeight(){
+    public void testItemWeight(){
         assertEquals(0, item.getWeight());
     }
     
@@ -37,4 +33,24 @@ public class ItemTest {
 	public void testGetItemEquippedName() {
 		assertEquals("Key", item.getName());
 	}
+    
+    @Test(expected = IllegalArgumentException.class)
+    public void testInvalidItemWeightConstructor() {
+    		new Item("Key", -1, 10);
+    }
+    
+    @Test(expected = IllegalArgumentException.class)
+    public void testInvalidItemValueConstructor() {
+    		new Item("Key", 10, -1);
+    }
+    
+    @Test(expected = IllegalArgumentException.class)
+    public void testSetInvalidWeight() {
+    		item.setWeight(-1);
+    }
+    
+    @Test(expected = IllegalArgumentException.class)
+    public void testSetInvalidValue() {
+    		item.setValue(-1);
+    }
 }

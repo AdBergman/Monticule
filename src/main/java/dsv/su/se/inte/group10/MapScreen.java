@@ -6,7 +6,6 @@ public class MapScreen {
 	private static final int DEFAULT_HEIGHT = 10;
 
 
-
 	private Object[][] map;
 	
 //	private int mapScreenType = 0;

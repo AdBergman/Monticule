@@ -56,7 +56,32 @@ public class MapScreenTest {
         ms.removeObject(3, 3);
         assertNotEquals(obj, ms.getTile(3,3));
     }
+    
+    @Test(expected = IllegalArgumentException.class)
+    public void testInvalidMapWidthConstructor() {
+    		new MapScreen(-1, 500);
+    }
 
+    @Test(expected = IllegalArgumentException.class)
+    public void testInvalidMapHeightConstructor() {
+    		new MapScreen(500, -1);
+    }
+    
+    @Test(expected = IllegalArgumentException.class)
+    public void testInvalidMapWidthAndHeightConstructor() {
+    		new MapScreen(-1, -1);
+    }
+ 
+    /*
+    @Test(expected = IllegalArgumentException.class)
+    public void testGetTileInvalidWidth() {
+    		Object obj = new Object();
+    		ms.addObject(obj, 5, 5);
+    		assertEquals(ms.getWidth(), ms.getTile(4, 5));
+    }
+    */
+    
+    
 
 //    @Test
 //    public void testMapScreenType() {
