@@ -6,6 +6,7 @@ import static org.junit.Assert.*;
 public class MapScreenTest {
 	
 	MapScreen ms = new MapScreen();
+    Object obj = new Object();
     
     @Test
     public void testMapWidth() {
@@ -36,10 +37,9 @@ public class MapScreenTest {
     }
 
     @Test
-    public void testGetTile() {    //:TODO needs to be fixed
-        Object obj = new Object();
-        ms.addObject(obj, 4, 4);
-        assertNotNull(ms.getTile(4,4));
+    public void testGetTile() {
+        ms.map[4][4] = obj;
+        assertEquals(obj, ms.getTile(4,4));
     }
 
     @Test
@@ -50,9 +50,8 @@ public class MapScreenTest {
     }
 
     @Test
-    public void testRemoveObject() {   //:TODO needs to be fixed
-        Object obj = new Object();
-        ms.addObject(obj, 3, 3);
+    public void testRemoveObject() {
+        ms.map[3][3] = obj;
         ms.removeObject(3, 3);
         assertNotEquals(obj, ms.getTile(3,3));
     }

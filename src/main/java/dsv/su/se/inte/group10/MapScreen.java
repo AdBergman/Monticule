@@ -7,7 +7,7 @@ public class MapScreen {
 
 
 
-	private Object[][] map;
+	protected Object[][] map; //Is Protected for testing purposes
 	
 //	private int mapScreenType = 0;
 	
