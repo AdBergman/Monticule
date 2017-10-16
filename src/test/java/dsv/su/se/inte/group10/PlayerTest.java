@@ -8,8 +8,10 @@ package dsv.su.se.inte.group10;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
+import java.util.HashMap;
+
 public class PlayerTest {
-    Character player = new Player();
+    Player player = new Player();
 
     @Test
     public void testPlayerGetDamage(){
@@ -29,6 +31,19 @@ public class PlayerTest {
     @Test
     public void testPlayerCurrentHP(){
         assertEquals(100, player.getCurrentHP());
+    }
+    
+    @Test
+    public void testUserObjectToEquipItem() {
+    	ItemEquippable i = new ItemEquippable("Mighty Helmet of Protecting", EquipmentType.HELMET, 15, 250);
+    	
+    	player.getBackpack().addItem(i);
+    	assertTrue(player.getBackpack().getItems().contains(i));
+    	assertFalse(player.checkSlot(EquipmentType.HELMET));
+    	
+    	player.useObject(i);
+    	assertEquals(i, player.getSlot(EquipmentType.HELMET));
+    	assertFalse(player.getBackpack().getItems().contains(i));
     }
 
     @Test

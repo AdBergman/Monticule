@@ -5,15 +5,22 @@ import java.util.Arrays;
 
 public class Backpack {
 	
+	private static final int DEFAULT_ITEMS = 5;
+	private static final int DEFAULT_WEIGHT = 10;
+	
 	private ArrayList<Item> itemList;
 	
 	private int itemLimit;
 	private int weightLimit;
 	
+	public Backpack() {
+		this(DEFAULT_ITEMS, DEFAULT_WEIGHT);
+	}
+	
 	public Backpack(int itemLimit, int weightLimit) {
 		this.itemLimit = itemLimit;
 		this.weightLimit= weightLimit;
-		itemList = new ArrayList();
+		itemList = new ArrayList<Item>();
 	}
 	
 	public void addItem(Item item) {
