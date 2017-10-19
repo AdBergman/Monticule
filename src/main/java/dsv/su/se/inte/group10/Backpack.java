@@ -1,7 +1,6 @@
 package dsv.su.se.inte.group10;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class Backpack {
 	
