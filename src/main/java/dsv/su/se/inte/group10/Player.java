@@ -47,10 +47,13 @@ public class Player extends Character {
 	}
 	
 	public void useObject(ItemEquippable i) {
-		backpack.removeItem(i);
-		if(equippedList.containsKey(i.getEquipmentType())) {
+		if(backpack.getItems().contains(i))
+			backpack.removeItem(i);
+		else
+			throw new NoSuchElementException("This item does not exist in inventory.");
+		
+		if(equippedList.containsKey(i.getEquipmentType()))
 			backpack.addItem(equippedList.get(i.getEquipmentType()));
-		}
 		equippedList.put(i.getEquipmentType(), i);
 	}
 	
