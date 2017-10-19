@@ -34,8 +34,15 @@ public class Backpack {
 		}
 	}
 	
-	public void removeItem(Item item) {
-		itemList.remove(item);
+	public boolean removeItem(Item item) {
+		if(getItems().contains(item)) {
+			itemList.remove(item);
+			return true;
+		}
+		else {
+			//inget item som kan tas bort
+			return false;
+		}
 	}
 	
 	public ArrayList<Item> getItems(){
