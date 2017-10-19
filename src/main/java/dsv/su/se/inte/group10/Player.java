@@ -30,6 +30,10 @@ public class Player extends Character {
 		return equippedList;
 	}
 	
+	public String getName() {
+		return this.name;
+	}
+	
 	public Backpack getBackpack() {
 		return backpack;
 	}

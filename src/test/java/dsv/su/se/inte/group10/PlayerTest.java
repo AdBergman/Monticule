@@ -12,6 +12,15 @@ public class PlayerTest {
 	
 	private MapScreen mapscreen = new MapScreen();
     private Player player = new Player();
+    
+    @Test
+    public void testPlayerWithNonDefaultStats() {
+    	Player p = new Player("Zero", 5, 6, 7);
+    	assertEquals("Zero", p.getName());
+    	assertEquals(5, p.getMaxHP());
+    	assertEquals(6, p.getSpeed());
+    	assertEquals(7, p.getDamage());
+    }
 
     @Test
     public void testPlayerGetDamage(){
@@ -31,6 +40,21 @@ public class PlayerTest {
     @Test
     public void testPlayerCurrentHP(){
         assertEquals(100, player.getCurrentHP());
+    }
+    
+    @Test(expected = IllegalArgumentException.class)
+    public void testConstructorInvalidHP() {
+    	new Player("Bob", -1, 10, 10);
+    }
+    
+    @Test(expected = IllegalArgumentException.class)
+    public void testConstructorInvalidSpeed() {
+    	new Player("Betty", 10, -1, 10);
+    }
+    
+    @Test(expected = IllegalArgumentException.class)
+    public void testConstructorInvalidWeight() {
+    	new Player("Bubba Gump", 10, 10, -1);
     }
     
     @Test
