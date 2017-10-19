@@ -12,6 +12,7 @@ public class Backpack {
 	
 	private int itemLimit;
 	private int weightLimit;
+	private int totalWeight;
 	
 	public Backpack() {
 		this(DEFAULT_ITEMS, DEFAULT_WEIGHT);
@@ -20,11 +21,17 @@ public class Backpack {
 	public Backpack(int itemLimit, int weightLimit) {
 		this.itemLimit = itemLimit;
 		this.weightLimit= weightLimit;
+		this.totalWeight = 0;
 		itemList = new ArrayList<Item>();
 	}
 	
-	public void addItem(Item item) {
-		itemList.add(item);
+	public boolean addItem(Item item) {
+		if(totalWeight + item.getWeight() <= weightLimit && totalWeight <= 0) {
+			itemList.add(item);
+			return true;
+		} else {
+			return false;
+		}
 	}
 	
 	public void removeItem(Item item) {

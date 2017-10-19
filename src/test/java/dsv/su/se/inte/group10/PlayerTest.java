@@ -35,7 +35,7 @@ public class PlayerTest {
     
     @Test
     public void testUserObjectToEquipItem() {
-    	ItemEquippable i = new ItemEquippable("Mighty Helmet of Protecting", EquipmentType.HELMET, 15, 250);
+    	ItemEquippable i = new ItemEquippable("Mighty Helmet of Protecting", EquipmentType.HELMET, 5, 250);
     	
     	player.getBackpack().addItem(i);
     	assertTrue(player.getBackpack().getItems().contains(i));
@@ -47,8 +47,25 @@ public class PlayerTest {
     }
 
     @Test
+
     public void testPlayerMoveUnit(){
         //TODO: once character has position
+    }
+    public void testUserObjectUnequipItem() {
+    	ItemEquippable i = new ItemEquippable("Mighty Helmet of Protecting", EquipmentType.HELMET, 5, 250);
+    	
+    	player.getBackpack().addItem(i);
+    	assertTrue(player.getBackpack().getItems().contains(i));
+    	assertFalse(player.checkSlot(EquipmentType.HELMET));
+    	
+    	player.useObject(i);
+    	assertEquals(i, player.getSlot(EquipmentType.HELMET));
+    	assertFalse(player.getBackpack().getItems().contains(i));
+    	
+    	player.unequipObject(i);
+    	assertNull(player.getSlot(EquipmentType.HELMET));
+    	assertTrue(player.getBackpack().getItems().contains(i));
+
     }
 
 }
