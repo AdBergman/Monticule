@@ -40,24 +40,41 @@ public abstract class Character {
     public int getCurrentHP(){
         return this.currentHP.getValue();
     }
-    
-//    public void moveUp() {
-//    	this.position.moveY(-speed);
-//    }
-//    
-//    public void moveDown() {
-//    	this.position.moveY(speed);
-//    }
-//    
-//    public void moveLeft() {
-//    	this.position.moveX(-speed);
-//    }
-//    
-//    public void moveRight() {
-//    	this.position.moveX(speed);
-//    }
-//    
-//    public Position getPosition() {
-//    	return this.position;
-//    }
+
+	protected void moveUp(MapScreen m) {
+		MapScreen.Coordinate coord = m.getCoordinate(this);
+		
+		if(0 <= coord.y-1) {
+			m.removeObject(coord.x, coord.y);
+			m.addObject(this, coord.x, coord.y-1);
+		}
+	}
+	
+	protected void moveDown(MapScreen m) {
+		MapScreen.Coordinate coord = m.getCoordinate(this);
+		
+		if(coord.y+1 <= m.getHeight()) {
+			m.removeObject(coord.x, coord.y);
+			m.addObject(this, coord.x, coord.y+1);
+		}
+	}
+	
+	protected void moveLeft(MapScreen m) {
+		MapScreen.Coordinate coord = m.getCoordinate(this);
+		
+		if(0 <= coord.x-1) {
+			m.removeObject(coord.x, coord.y);
+			m.addObject(this, coord.x-1, coord.y);
+		}
+	}
+	
+	protected void moveRight(MapScreen m) {
+		MapScreen.Coordinate coord = m.getCoordinate(this);
+		
+		if(coord.x+1 <= m.getWidth()) {
+			m.removeObject(coord.x, coord.y);
+			m.addObject(this, coord.x+1, coord.y);
+		}
+	}
+	
 }
