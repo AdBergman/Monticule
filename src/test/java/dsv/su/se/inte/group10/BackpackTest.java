@@ -21,9 +21,18 @@ public class BackpackTest {
 	}
 	
 	@Test
-	public void testBackpackWeight() {
+	public void testBackpackWeightLimit() {
 		Backpack bp = new Backpack(11, 20);
 		assertEquals(20, bp.getWeightLimit());
+	}
+	
+	@Test
+	public void testBackpackContentWeight() {
+		Backpack bp = new Backpack(11, 20);
+		bp.addItem(new Item("Thing one", 3, 3));
+		bp.addItem(new Item("Thing two", 3, 3));
+		bp.addItem(new Item("Thing three", 3, 3));
+		assertEquals(9, bp.getTotalWeight());
 	}
 	
 	@Test
@@ -49,6 +58,29 @@ public class BackpackTest {
 	public void testRemoveItemNotInList() {
 		Item item = new Item("Medium item", 6, 8);
 		assertFalse(bp.removeItem(item));
+	}
+	
+	@Test(expected = java.util.NoSuchElementException.class)
+	public void testSwapItemNotInBackpack() {
+		bp.swapItem(new ItemEquippable("Thing one", EquipmentType.HELMET), new ItemEquippable("Thing two", EquipmentType.BOOTS));
+	}
+	
+	@Test
+	public void testSwapItems() {
+		ItemEquippable itemOne = new ItemEquippable("Thing one", EquipmentType.HELMET);
+		ItemEquippable itemTwo = new ItemEquippable("Thing two", EquipmentType.BOOTS);
+		bp.addItem(itemOne);
+		assertTrue(bp.swapItem(itemOne, itemTwo));
+		assertFalse(bp.containsItem(itemOne));
+		assertTrue(bp.containsItem(itemTwo));
+	}
+	
+	@Test
+	public void testSwapItemTooHeavyForBackpack() {
+		ItemEquippable itemOne = new ItemEquippable("Thing one", EquipmentType.HELMET, 5, 10);
+		ItemEquippable itemTwo = new ItemEquippable("Thing two", EquipmentType.BOOTS, 20, 10);
+		bp.addItem(itemOne);
+		assertFalse(bp.swapItem(itemOne, itemTwo));
 	}
 	
 }
