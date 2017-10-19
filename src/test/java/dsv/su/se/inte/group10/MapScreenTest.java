@@ -8,7 +8,7 @@ public class MapScreenTest {
 	MapScreen ms = new MapScreen();
     Object obj = new Object();
     
-    @Test
+   @Test
     public void testMapWidth() {
     	assertEquals(10, ms.getWidth());
     }
@@ -80,7 +80,20 @@ public class MapScreenTest {
     }
     */
     
+    @Test(expected = IllegalArgumentException.class)
+    public void testGetTileInvalidWidth() {
+        ms.addObject(obj, 5, 5);
+        assertEquals(obj, ms.getTile(-1, 5));
+    }
     
+    @Test
+    public void testBackupCoordinates() {
+    	Object obj1 = new Object();
+    	ms.getCoordinate(obj1);
+    	obj = obj1;
+    	assertEquals(obj, obj1);
+    	
+    }
 
 //    @Test
 //    public void testMapScreenType() {
