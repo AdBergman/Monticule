@@ -127,12 +127,8 @@ public class PlayerTest {
     	assertEquals(i, player.getSlot(EquipmentType.HELMET));
     	assertFalse(player.getBackpack().getItems().contains(i));
     }
-
+    
     @Test
-
-    public void testPlayerMoveUnit(){
-        //TODO: once character has position
-    }
     public void testUserObjectUnequipItem() {
     	ItemEquippable i = new ItemEquippable("Mighty Helmet of Protecting", EquipmentType.HELMET, 5, 250);
     	
