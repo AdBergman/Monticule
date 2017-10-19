@@ -23,4 +23,17 @@ public class BackpackTest {
 	public void testBackpackWeight() {
 		assertEquals(20, bp.getWeightLimit());
 	}
+	
+	@Test
+	public void testAddItemToBackpack() {
+		Item item = new Item("Big item", 10, 10);
+		assertTrue(bp.addItem(item));
+	}
+	
+	@Test
+	public void testAddTooHeavyItemToBackpack() {
+		Item item = new Item("Big item", 50, 10);
+		assertFalse(bp.addItem(item));
+	}
+	
 }
