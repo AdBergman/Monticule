@@ -1,10 +1,7 @@
 package dsv.su.se.inte.group10;
 
 import java.util.HashMap;
-import java.util.Map;
 import java.util.NoSuchElementException;
-
-import static org.junit.Assert.*;
 
 public class Player extends Character {
 
