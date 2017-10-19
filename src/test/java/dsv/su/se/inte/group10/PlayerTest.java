@@ -12,6 +12,11 @@ import java.util.HashMap;
 
 public class PlayerTest {
     Player player = new Player();
+    
+    @Test
+    public void testPlayerConstructor() {
+    		new Player("Bobbo", 20, 30, 4);
+    }
 
     @Test
     public void testPlayerGetDamage(){
