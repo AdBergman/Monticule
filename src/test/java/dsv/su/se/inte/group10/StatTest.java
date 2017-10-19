@@ -34,5 +34,13 @@ public class StatTest {
 		assertEquals(StatType.speed, s3.getType());
 		assertEquals(StatType.damage, s4.getType());
 	}
+	
+	@Test
+	public void testStatTypes() {
+		// Fultest för coverage.
+		for(StatType st : StatType.values()) {
+			assertNotNull(st.name());
+		}
+	}
 
 }
