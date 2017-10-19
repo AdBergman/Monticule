@@ -10,6 +10,11 @@ public class ItemConsumableTest {
 	ItemConsumable cs = new ItemConsumable("Life potion", 1, 15, e1, e2);
 	
 	@Test
+	public void testConstuctor() {
+		new ItemConsumable("Killer wine", e1, e2);	
+	}
+	
+	@Test
 	public void testHasEffect() {
 		assertNotNull(cs.getStats());
 	}
@@ -42,5 +47,10 @@ public class ItemConsumableTest {
 	@Test
 	public void testLifePotionNumberOfStats() {
 		assertEquals(2, cs.getStats().size());
+	}
+	
+	@Test
+	public void testDuration() {
+		assertEquals(0, cs.getDuration());
 	}
 }

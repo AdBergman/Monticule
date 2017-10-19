@@ -36,6 +36,8 @@ public class MovementEventTest {
 		me.moveRight(mapscreen, player);
 		assertEquals(player, mapscreen.getTile(6, 5));
 	}
+	
+	
 
 }
 
