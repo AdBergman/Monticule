@@ -53,7 +53,7 @@ public abstract class Character {
 	protected void moveDown(MapScreen m) {
 		MapScreen.Coordinate coord = m.getCoordinate(this);
 		
-		if(coord.y+1 <= m.getHeight()) {
+		if(coord.y+1 < m.getHeight()) {
 			m.removeObject(coord.x, coord.y);
 			m.addObject(this, coord.x, coord.y+1);
 		}
@@ -71,7 +71,7 @@ public abstract class Character {
 	protected void moveRight(MapScreen m) {
 		MapScreen.Coordinate coord = m.getCoordinate(this);
 		
-		if(coord.x+1 <= m.getWidth()) {
+		if(coord.x+1 < m.getWidth()) {
 			m.removeObject(coord.x, coord.y);
 			m.addObject(this, coord.x+1, coord.y);
 		}
