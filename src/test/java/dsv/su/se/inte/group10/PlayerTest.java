@@ -35,7 +35,7 @@ public class PlayerTest {
     
     @Test
     public void testUserObjectToEquipItem() {
-    	ItemEquippable i = new ItemEquippable("Mighty Helmet of Protecting", EquipmentType.HELMET, 15, 250);
+    	ItemEquippable i = new ItemEquippable("Mighty Helmet of Protecting", EquipmentType.HELMET, 5, 250);
     	
     	player.getBackpack().addItem(i);
     	assertTrue(player.getBackpack().getItems().contains(i));
@@ -48,7 +48,7 @@ public class PlayerTest {
     
     @Test
     public void testUserObjectUnequipItem() {
-    	ItemEquippable i = new ItemEquippable("Mighty Helmet of Protecting", EquipmentType.HELMET, 15, 250);
+    	ItemEquippable i = new ItemEquippable("Mighty Helmet of Protecting", EquipmentType.HELMET, 5, 250);
     	
     	player.getBackpack().addItem(i);
     	assertTrue(player.getBackpack().getItems().contains(i));
