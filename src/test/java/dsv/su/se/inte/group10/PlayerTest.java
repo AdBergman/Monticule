@@ -44,6 +44,13 @@ public class PlayerTest {
         assertEquals(100, player.getCurrentHP());
     }
     
+    @Test
+    public void testGetEquippedList() {
+    		HashMap<EquipmentType, ItemEquippable> testList = new HashMap<EquipmentType, ItemEquippable>(); 
+    		testList.putAll(player.getEquippedList());
+    		assertEquals(testList, player.getEquippedList());
+    }
+    
     @Test(expected = IllegalArgumentException.class)
     public void testConstructorInvalidHP() {
     	new Player("Bob", -1, 10, 10);
