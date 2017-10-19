@@ -53,4 +53,14 @@ public class ItemTest {
     public void testSetInvalidValue() {
     		item.setValue(-1);
     }
+    
+    @Test
+    public void testSetValue() {
+    	item.setValue(1);
+    }
+    
+    @Test
+    public void testWeight() {
+    	item.setWeight(2);
+    }
 }
