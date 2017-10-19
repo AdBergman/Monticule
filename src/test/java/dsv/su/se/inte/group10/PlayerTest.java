@@ -8,7 +8,7 @@ package dsv.su.se.inte.group10;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-import java.util.HashMap;
+import java.util.NoSuchElementException;
 
 public class PlayerTest {
 	
@@ -114,36 +114,108 @@ public class PlayerTest {
 		player.moveRight(mapscreen);		
 		assertEquals(player, mapscreen.getTile(9, 5));		
 	}
+	
+	@Test
+	public void testItem() {
+		player.useObject(new Item("Thing"));
+	}
+	
+	@Test
+	public void testUseConsumableItem() {
+		ItemConsumable i = new ItemConsumable("Life potion");
+		player.getBackpack().addItem(i);
+		player.useObject(i);
+	}
+	
+	@Test
+	public void testCheckEmptySlots() {
+		for(EquipmentType et : EquipmentType.values()) {
+			assertFalse(player.checkSlotEquipped(et));
+		}
+	}
     
     @Test
     public void testUserObjectToEquipItem() {
     	ItemEquippable i = new ItemEquippable("Mighty Helmet of Protecting", EquipmentType.HELMET, 5, 250);
     	
     	player.getBackpack().addItem(i);
-    	assertTrue(player.getBackpack().getItems().contains(i));
-    	assertFalse(player.checkSlot(EquipmentType.HELMET));
-    	
     	player.useObject(i);
     	assertEquals(i, player.getSlot(EquipmentType.HELMET));
     	assertFalse(player.getBackpack().getItems().contains(i));
     }
     
-    @Test
-    public void testUserObjectUnequipItem() {
+    @Test(expected = NoSuchElementException.class)
+    public void testUserObjectUnequipUnequippedItem() {
     	ItemEquippable i = new ItemEquippable("Mighty Helmet of Protecting", EquipmentType.HELMET, 5, 250);
+    	player.unequipObject(i);
+    }
+    
+    @Test(expected = NoSuchElementException.class)
+    public void testUserObjectUseItemEquippableNotInBackpack() {
+    	ItemEquippable i = new ItemEquippable("Mighty Helmet of Protecting", EquipmentType.HELMET, 5, 250);
+    	player.useObject(i);
+	}
+    
+    @Test(expected = NoSuchElementException.class)
+    public void testUserObjectUseItemConsumableNotInBackpack() {
+    	ItemConsumable i = new ItemConsumable("Life potion", 5, 250, new Stat(StatType.currentHP, 50));
+    	player.useObject(i);
+    }
+    
+    @Test
+    public void testUserObjectToUnequipItem() {
+    	ItemEquippable i = new ItemEquippable("Mighty Helmet of Protecting", EquipmentType.HELMET, 1, 250);
     	
     	player.getBackpack().addItem(i);
-    	assertTrue(player.getBackpack().getItems().contains(i));
-    	assertFalse(player.checkSlot(EquipmentType.HELMET));
-    	
     	player.useObject(i);
-    	assertEquals(i, player.getSlot(EquipmentType.HELMET));
-    	assertFalse(player.getBackpack().getItems().contains(i));
-    	
     	player.unequipObject(i);
-    	assertNull(player.getSlot(EquipmentType.HELMET));
+    	assertTrue(player.getBackpack().containsItem(i));
+    	assertFalse(player.getEquippedList().containsValue(i));
+    }
+    
+    @Test
+    public void testUserObjectToUnequipTooHeavyItem() {
+    	ItemEquippable i = new ItemEquippable("Mighty Helmet of Protecting", EquipmentType.HELMET, 5, 250);
+    	ItemEquippable j = new ItemEquippable("Bigass Helmet of Heaviness", EquipmentType.HELMET, 10, 250);
+    	
+    	player.getBackpack().addItem(i);
+    	player.useObject(i);
+    	player.getBackpack().addItem(j);
+    	player.unequipObject(i);
+    	assertFalse(player.getBackpack().getItems().contains(i));
+    	assertTrue(player.getEquippedList().containsValue(i));
+    }
+    
+    @Test
+    public void testUserObjectToEquipAlreadyEquippedItem() {
+    	ItemEquippable i = new ItemEquippable("Mighty Helmet of Protecting", EquipmentType.HELMET, 5, 250);
+    	ItemEquippable j = new ItemEquippable("Bigass Helmet of Heaviness", EquipmentType.HELMET, 10, 250);
+    	
+    	player.getBackpack().addItem(i);
+    	player.useObject(i);
+    	player.getBackpack().addItem(j);
+    	player.useObject(j);
+    	assertFalse(player.getBackpack().getItems().contains(j));
     	assertTrue(player.getBackpack().getItems().contains(i));
-
+    	assertFalse(player.getEquippedList().containsValue(i));
+    	assertTrue(player.getEquippedList().containsValue(j));
+    }
+    
+    @Test
+    public void testUserObjectToEquipAlreadyEquippedItemWithNoSpaceInBackpack() {
+    	ItemEquippable i = new ItemEquippable("Mighty Helmet of Protecting", EquipmentType.HELMET, 5, 250);
+    	ItemEquippable j = new ItemEquippable("Bigass Helmet of Heaviness", EquipmentType.HELMET, 10, 250);
+    	ItemEquippable k = new ItemEquippable("Heavy Thing of Carrying", EquipmentType.OFFHAND, 5, 0);
+    	
+    	player.getBackpack().addItem(j);
+    	player.useObject(j);
+    	player.getBackpack().addItem(i);
+    	player.getBackpack().addItem(k);
+    	player.useObject(i);
+    	assertFalse(player.getBackpack().getItems().contains(j));
+    	assertTrue(player.getBackpack().getItems().contains(i));
+//    	assertFalse(player.getEquippedList().containsValue(i));
+//    	assertTrue(player.getEquippedList().containsValue(j));
     }
 
 }

@@ -10,7 +10,6 @@ public class Player extends Character {
 	private String name;
 	private Backpack backpack = new Backpack();
 	private HashMap<EquipmentType, ItemEquippable> equippedList = new HashMap<EquipmentType, ItemEquippable>(); 
-	// private EquippedList equippedList = new EquippedList();
 	
 	public Player() {
 		this(DEFAULT_NAME);
@@ -38,7 +37,7 @@ public class Player extends Character {
 		return backpack;
 	}
 	
-	protected boolean checkSlot(EquipmentType et) {
+	protected boolean checkSlotEquipped(EquipmentType et) {
 		return equippedList.containsKey(et);
 	}
 	
@@ -47,23 +46,24 @@ public class Player extends Character {
 	}
 	
 	public void useObject(ItemEquippable i) {
-		if(backpack.getItems().contains(i))
-			backpack.removeItem(i);
-		else
+		if(!backpack.getItems().contains(i)) {
 			throw new NoSuchElementException("This item does not exist in inventory.");
+		}
 		
-		if(equippedList.containsKey(i.getEquipmentType()))
-			backpack.addItem(equippedList.get(i.getEquipmentType()));
+		if(equippedList.containsKey(i.getEquipmentType())) {
+			backpack.swapItem(i, equippedList.get(i.getEquipmentType()));
+		} else {
+			backpack.removeItem(i);
+		}
 		equippedList.put(i.getEquipmentType(), i);
 	}
 	
 	public void useObject(ItemConsumable i) {
-		/**
-		 * check for status effects and apply
-		 * start timer and delete item once
-		 * timer reaches zero (0); remove status
-		 * effect from active statuses list.
-		 */	
+		if(!backpack.getItems().contains(i)) {
+			throw new NoSuchElementException("This item does not exist in inventory.");
+		}
+		// process status effects
+		backpack.removeItem(i);
 	}
 	
 	public void useObject(Item i) {
@@ -74,8 +74,8 @@ public class Player extends Character {
 	
 	public void unequipObject(ItemEquippable i) {
 		if(equippedList.containsValue(i)) {
-			if(backpack.getItems().size() < backpack.getItemLimit()) {
-				backpack.addItem(equippedList.remove(i.getEquipmentType()));
+			if(backpack.addItem(i)) {
+				equippedList.remove(i.getEquipmentType());
 			} else {
 				// show message that this cannot be done.
 			}
