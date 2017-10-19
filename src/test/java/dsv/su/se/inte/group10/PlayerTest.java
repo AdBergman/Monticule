@@ -8,6 +8,7 @@ package dsv.su.se.inte.group10;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
+import java.util.HashMap;
 import java.util.NoSuchElementException;
 
 public class PlayerTest {
@@ -42,6 +43,11 @@ public class PlayerTest {
     @Test
     public void testPlayerCurrentHP(){
         assertEquals(100, player.getCurrentHP());
+    }
+    
+    @Test
+    public void testGetEquippedList() {
+		assertNotNull(player.getEquippedList());
     }
     
     @Test(expected = IllegalArgumentException.class)
