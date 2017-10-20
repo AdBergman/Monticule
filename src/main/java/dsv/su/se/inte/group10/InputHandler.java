@@ -25,23 +25,32 @@ public class InputHandler implements KeyListener {
 	            getKeyCode();
 	            break;
 	        case KeyEvent.VK_DOWN:
-	        	getKeyCode();
+	        		getKeyCode();
 	            break;
 	        case KeyEvent.VK_LEFT:
-	        	getKeyCode();
+	        		getKeyCode();
 	            break;
 	        case KeyEvent.VK_RIGHT :
-	        	getKeyCode();
+	        		getKeyCode();
 	            break;
+	        case KeyEvent.VK_ENTER :
+	        		getKeyCode();
+	            break;
+	        case KeyEvent.VK_I :
+	        		getKeyCode();
+	            break;
+	        case KeyEvent.VK_R :
+	        		getKeyCode();
+	            break;
+	        case KeyEvent.VK_ESCAPE :
+        			getKeyCode();
+        			break;
+	            
 	    }
 	}
 	
 	public int getKeyCode(){
         return keyCode;
-    }
-	   
-   public void setKeyCode(int keyCode) {
-	   	this.keyCode = keyCode;
     }
    
    public void keyReleased(KeyEvent e) {
