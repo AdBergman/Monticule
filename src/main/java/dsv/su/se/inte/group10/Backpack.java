@@ -26,7 +26,7 @@ public class Backpack {
 	}
 	
 	public boolean addItem(Item item) {
-		if((totalWeight + item.getWeight()) <= weightLimit && totalWeight >= 0) {
+		if((totalWeight + item.getWeight()) <= weightLimit /* && totalWeight >= 0 */) {
 			itemList.add(item);
 			totalWeight += item.getWeight();
 			return true;
