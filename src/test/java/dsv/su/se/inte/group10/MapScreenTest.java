@@ -44,7 +44,7 @@ public class MapScreenTest {
 
     @Test
     public void testAddObject() {
-        Character player = new Player();
+        Creature player = new Player();
         ms.addObject(player, 5, 5);
         assertEquals(player, ms.getTile(5,5));
     }

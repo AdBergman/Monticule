@@ -1,6 +1,6 @@
 package dsv.su.se.inte.group10;
 
-public abstract class Character {
+public abstract class Creature {
 	
 	private final static int DEFAULT_HP = 100;
 	private final static int DEFAULT_SPEED = 10;
@@ -11,11 +11,11 @@ public abstract class Character {
 	private Stat speed;
 	private Stat damage;
 
-	public Character() {
+	public Creature() {
 		this(DEFAULT_HP, DEFAULT_SPEED, DEFAULT_DAMAGE);
 	}
 	
-	public Character(int maxHP, int speed, int damage) {
+	public Creature(int maxHP, int speed, int damage) {
 		if(maxHP < 0) {
 			throw new IllegalArgumentException("Max HP cannot be lower than one (1).");
 		} else if (speed <= 0 || damage <= 0) {

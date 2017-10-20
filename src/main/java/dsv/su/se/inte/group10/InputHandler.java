@@ -12,6 +12,10 @@ public class InputHandler implements KeyListener {
 	public InputHandler() {
 		
 	}
+	
+	public int getAction() {
+		return -1;
+	}
 
 	
 	public void keyPressed(KeyEvent e) {

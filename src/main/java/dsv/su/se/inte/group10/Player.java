@@ -3,7 +3,7 @@ package dsv.su.se.inte.group10;
 import java.util.HashMap;
 import java.util.NoSuchElementException;
 
-public class Player extends Character {
+public class Player extends Creature {
 
 	private static final String DEFAULT_NAME = "Kim";
 	
