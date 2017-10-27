@@ -12,7 +12,13 @@ public /* abstract */ class Item {
 	
 	public Item(String name, int weight, int value) {
 		if(weight < 0 || value < 0) {
-			throw new IllegalArgumentException();
+			throw new IllegalArgumentException("Weight and value must be greater than zero (0).");
+		}
+		if(name.length() < 1 || name.length() > 64) {
+			throw new IllegalArgumentException("Name must be between 1 and 64 characters long.");
+		}
+		if(name.contains(".")) {
+			throw new IllegalArgumentException("Illegal character in name.");
 		}
 		this.weight = weight;
 		this.value = value;

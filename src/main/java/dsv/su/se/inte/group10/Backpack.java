@@ -26,7 +26,7 @@ public class Backpack {
 	}
 	
 	public boolean addItem(Item item) {
-		if((totalWeight + item.getWeight()) <= weightLimit /* && totalWeight >= 0 */) {
+		if( totalWeight + item.getWeight() <= weightLimit && itemList.size() < itemLimit /* && totalWeight >= 0 */ ) {
 			itemList.add(item);
 			totalWeight += item.getWeight();
 			return true;
@@ -40,6 +40,7 @@ public class Backpack {
 		if(itemList.contains(item)) {
 			itemList.remove(item);
 			totalWeight -= item.getWeight();
+			assert(totalWeight >= 0);
 			return true;
 		}
 		else {
@@ -49,8 +50,8 @@ public class Backpack {
 	}
 	
 	public boolean swapItem(ItemEquippable get, ItemEquippable put) {
-		if(!itemList.contains(get)) {
-			throw new NoSuchElementException();
+		if(!itemList.contains(get) || get.equals(null)) {
+			throw new NoSuchElementException("Item to get either does not exist in backpack, or is null.");
 		}
 		else if((totalWeight - get.getWeight() + put.getWeight()) <= weightLimit) {
 			removeItem(get);
