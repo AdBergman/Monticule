@@ -22,16 +22,27 @@ public class StatTest {
 		new Stat(StatType.damage, -1);
 	}
 	
-	@Test 
-	public void testValidStatType() {
+	@Test
+	public void testValidStatTypeMaxHP() {
 		Stat s1 = new Stat(StatType.maxHP, 10);
-		Stat s2 = new Stat(StatType.currentHP, 5);
-		Stat s3 = new Stat(StatType.speed, 5);
-		Stat s4 = new Stat(StatType.damage, 10);
-		
 		assertEquals(StatType.maxHP, s1.getType());
+	}
+	
+	@Test
+	public void testValidStatTypeCurrentHP() {
+		Stat s2 = new Stat(StatType.currentHP, 5);
 		assertEquals(StatType.currentHP, s2.getType());
+	}
+	
+	@Test
+	public void testVaildStatTypeSpeed() {
+		Stat s3 = new Stat(StatType.speed, 5);
 		assertEquals(StatType.speed, s3.getType());
+	}
+	
+	@Test
+	public void testVaildStatTypeDamage() {
+		Stat s4 = new Stat(StatType.damage, 10);
 		assertEquals(StatType.damage, s4.getType());
 	}
 	
