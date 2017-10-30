@@ -42,6 +42,12 @@ public abstract class Creature {
     public int getCurrentHP(){
         return this.currentHP.getValue();
     }
+    
+    /**
+     * Flytta bort movements till movementevent och skicka
+     * utöver mapscreen även med "this" som argument till
+     * förflyttningsmetoderna.
+     */
 
 	protected void moveUp(MapScreen m) {
 		MapScreen.Coordinate coord = m.getCoordinate(this);

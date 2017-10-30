@@ -22,5 +22,19 @@ public class ItemWithStat extends Item {
 	public ArrayList<Stat> getStats(){
 		return new ArrayList<Stat>(statList);
 	}
+	
+	public void addStat(Stat stat) {
+		statList.add(stat);
+	}
+	
+	public void removeStat(Stat stat) {
+		if(stat.equals(null)) {
+			throw new IllegalArgumentException("Argument is null.");
+		}
+		else if(!statList.contains(stat)) {
+			throw new IllegalArgumentException("Item has no such stat.");
+		}
+		statList.remove(stat);
+	}
 
 }

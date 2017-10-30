@@ -51,13 +51,14 @@ public class BackpackTest {
 	public void testRemoveItem() {
 		Item item = new Item("Medium item", 5, 7);
 		assertTrue(bp.addItem(item));
-		assertTrue(bp.removeItem(item));
+		assertEquals(item, bp.removeItem(item));
+		assertFalse(bp.containsItem(item));
 	}
 	
 	@Test
 	public void testRemoveItemNotInList() {
 		Item item = new Item("Medium item", 6, 8);
-		assertFalse(bp.removeItem(item));
+		assertNull(bp.removeItem(item));
 	}
 	
 	@Test(expected = java.util.NoSuchElementException.class)
@@ -65,12 +66,17 @@ public class BackpackTest {
 		bp.swapItem(new ItemEquippable("Thing one", EquipmentType.HELMET), new ItemEquippable("Thing two", EquipmentType.BOOTS));
 	}
 	
+	@Test(expected = java.util.NoSuchElementException.class)
+	public void testSwapNullItem() {
+		bp.swapItem(null, new ItemEquippable("Thing two", EquipmentType.BOOTS));
+	}
+	
 	@Test
 	public void testSwapItems() {
 		ItemEquippable itemOne = new ItemEquippable("Thing one", EquipmentType.HELMET);
 		ItemEquippable itemTwo = new ItemEquippable("Thing two", EquipmentType.BOOTS);
 		bp.addItem(itemOne);
-		assertTrue(bp.swapItem(itemOne, itemTwo));
+		assertEquals(itemOne, bp.swapItem(itemOne, itemTwo));
 		assertFalse(bp.containsItem(itemOne));
 		assertTrue(bp.containsItem(itemTwo));
 	}
@@ -80,7 +86,9 @@ public class BackpackTest {
 		ItemEquippable itemOne = new ItemEquippable("Thing one", EquipmentType.HELMET, 5, 10);
 		ItemEquippable itemTwo = new ItemEquippable("Thing two", EquipmentType.BOOTS, 20, 10);
 		bp.addItem(itemOne);
-		assertFalse(bp.swapItem(itemOne, itemTwo));
+		assertEquals(null, bp.swapItem(itemOne, itemTwo));
+		assertTrue(bp.containsItem(itemOne));
+		assertFalse(bp.containsItem(itemTwo));
 	}
 	
 }

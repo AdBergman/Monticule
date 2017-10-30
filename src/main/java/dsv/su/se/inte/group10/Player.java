@@ -46,16 +46,19 @@ public class Player extends Creature {
 	}
 	
 	public void useObject(ItemEquippable i) {
-		if(!backpack.getItems().contains(i)) {
+		if(i == null || !backpack.getItems().contains(i)) {
 			throw new NoSuchElementException("This item does not exist in inventory.");
 		}
 		
+		ItemEquippable swapItem;
 		if(equippedList.containsKey(i.getEquipmentType())) {
-			backpack.swapItem(i, equippedList.get(i.getEquipmentType()));
+			swapItem = backpack.swapItem(i, equippedList.get(i.getEquipmentType()));
 		} else {
-			backpack.removeItem(i);
+			swapItem = (ItemEquippable) backpack.removeItem(i);
 		}
-		equippedList.put(i.getEquipmentType(), i);
+		if(!(backpack.containsItem(swapItem) || swapItem == null)) {
+			equippedList.put(i.getEquipmentType(), i);
+		}
 	}
 	
 	public void useObject(ItemConsumable i) {

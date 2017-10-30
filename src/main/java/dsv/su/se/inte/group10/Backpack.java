@@ -19,6 +19,9 @@ public class Backpack {
 	}
 	
 	public Backpack(int itemLimit, int weightLimit) {
+		if(itemLimit < 1 || weightLimit < 1) {
+			throw new IllegalArgumentException("itemLimit and weightLimit must be greater than zero.");
+		}
 		this.itemLimit = itemLimit;
 		this.weightLimit= weightLimit;
 		this.totalWeight = 0;
@@ -36,30 +39,30 @@ public class Backpack {
 		}
 	}
 	
-	public boolean removeItem(Item item) {
+	public Item removeItem(Item item) {
 		if(itemList.contains(item)) {
 			itemList.remove(item);
 			totalWeight -= item.getWeight();
 			assert(totalWeight >= 0);
-			return true;
+			return item;
 		}
 		else {
 			//inget item som kan tas bort
-			return false;
+			return null;
 		}
 	}
 	
-	public boolean swapItem(ItemEquippable get, ItemEquippable put) {
-		if(!itemList.contains(get) || get.equals(null)) {
+	public ItemEquippable swapItem(ItemEquippable get, ItemEquippable put) {
+		if(get == null || !itemList.contains(get)) {
 			throw new NoSuchElementException("Item to get either does not exist in backpack, or is null.");
 		}
 		else if((totalWeight - get.getWeight() + put.getWeight()) <= weightLimit) {
 			removeItem(get);
 			addItem(put);
-			return true;
+			return get;
 		}
 		else {
-			return false;
+			return null;
 		}
 	}
 	

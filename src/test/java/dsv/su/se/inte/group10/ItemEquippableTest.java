@@ -74,6 +74,25 @@ public class ItemEquippableTest {
 		assertEquals(EquipmentType.MAINHAND, item.getEquipmentType());
 
 	}
+	
+	@Test
+	public void testAddStat() {
+		ItemEquippable ie = new ItemEquippable("Thing", EquipmentType.MAINHAND);
+		Stat stat = new Stat(StatType.maxHP, 5);
+		assertFalse(ie.getStats().contains(stat));
+		ie.addStat(stat);
+		assertTrue(ie.getStats().contains(stat));
+	}
+	
+	@Test
+	public void testRemoveStat() {
+		ItemEquippable ie = new ItemEquippable("Thing", EquipmentType.MAINHAND);
+		Stat stat = new Stat(StatType.maxHP, 5);
+		ie.addStat(stat);
+		assertTrue(ie.getStats().contains(stat));
+		ie.removeStat(stat);
+		assertFalse(ie.getStats().contains(stat));
+	}
 
 
 }
