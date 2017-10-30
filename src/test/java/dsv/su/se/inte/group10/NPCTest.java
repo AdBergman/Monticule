@@ -3,8 +3,6 @@ package dsv.su.se.inte.group10;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-import java.util.HashMap;
-import java.util.NoSuchElementException;
 
 public class NPCTest {
 	
