@@ -26,7 +26,7 @@ public class Player extends Creature {
 	}
 	
 	public HashMap<EquipmentType, ItemEquippable> getEquippedList() {
-		return equippedList;
+		return new HashMap<EquipmentType, ItemEquippable>(equippedList);
 	}
 	
 	public String getName() {
@@ -42,23 +42,30 @@ public class Player extends Creature {
 	}
 	
 	protected ItemEquippable getSlot(EquipmentType et) {
-		return equippedList.get(et);
+		if(checkSlotEquipped(et)) {
+			return equippedList.get(et);
+		}
+		else {
+			throw new IllegalArgumentException("No such element in equippedList.");
+		}
 	}
 	
-	public void useObject(ItemEquippable i) {
-		if(i == null || !backpack.getItems().contains(i)) {
+	public void useObject(ItemEquippable itemToEquip) {
+		if(itemToEquip == null) {
+			throw new NoSuchElementException("Argument is null.");
+		}
+		else if(!backpack.containsItem(itemToEquip)) {
 			throw new NoSuchElementException("This item does not exist in inventory.");
 		}
 		
-		ItemEquippable swapItem;
-		if(equippedList.containsKey(i.getEquipmentType())) {
-			swapItem = backpack.swapItem(i, equippedList.get(i.getEquipmentType()));
+		boolean success;
+		if(equippedList.containsKey(itemToEquip.getEquipmentType())) {
+			success = backpack.swapItem(itemToEquip, equippedList.get(itemToEquip.getEquipmentType()));
 		} else {
-			swapItem = i;
-			backpack.removeItem(i);
+			success = backpack.removeItem(itemToEquip);
 		}
-		if(!(backpack.containsItem(swapItem) || swapItem == null)) {
-			equippedList.put(i.getEquipmentType(), i);
+		if(success) {
+			equippedList.put(itemToEquip.getEquipmentType(), itemToEquip);
 		}
 	}
 	

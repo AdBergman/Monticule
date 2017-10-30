@@ -12,7 +12,7 @@ public class Backpack {
 	
 	private int itemLimit;
 	private int weightLimit;
-	private int totalWeight;
+	private int currentWeight;
 	
 	public Backpack() {
 		this(DEFAULT_ITEMS, DEFAULT_WEIGHT);
@@ -20,18 +20,18 @@ public class Backpack {
 	
 	public Backpack(int itemLimit, int weightLimit) {
 		if(itemLimit < 1 || weightLimit < 1) {
-			throw new IllegalArgumentException("itemLimit and weightLimit must be greater than zero.");
+			throw new IllegalArgumentException("itemLimit and weightLimit must be one (1) or more.");
 		}
 		this.itemLimit = itemLimit;
 		this.weightLimit= weightLimit;
-		this.totalWeight = 0;
+		this.currentWeight = 0;
 		itemList = new ArrayList<Item>();
 	}
 	
 	public boolean addItem(Item item) {
-		if( totalWeight + item.getWeight() <= weightLimit && itemList.size() < itemLimit /* && totalWeight >= 0 */ ) {
+		if( currentWeight + item.getWeight() <= weightLimit && itemList.size() < itemLimit /* && totalWeight >= 0 */ ) {
 			itemList.add(item);
-			totalWeight += item.getWeight();
+			currentWeight += item.getWeight();
 			return true;
 		}
 		else {
@@ -42,8 +42,8 @@ public class Backpack {
 	public boolean removeItem(Item item) {
 		if(itemList.contains(item)) {
 			itemList.remove(item);
-			totalWeight -= item.getWeight();
-			assert(totalWeight >= 0);
+			currentWeight -= item.getWeight();
+			assert(currentWeight >= 0);
 			return true;
 		}
 		else {
@@ -52,17 +52,17 @@ public class Backpack {
 		}
 	}
 	
-	public ItemEquippable swapItem(ItemEquippable get, ItemEquippable put) {
+	public boolean swapItem(ItemEquippable get, ItemEquippable put) {
 		if(get == null || !itemList.contains(get)) {
 			throw new NoSuchElementException("Item to get either does not exist in backpack, or is null.");
 		}
-		else if((totalWeight - get.getWeight() + put.getWeight()) <= weightLimit) {
+		else if((currentWeight - get.getWeight() + put.getWeight()) <= weightLimit) {
 			removeItem(get);
 			addItem(put);
-			return get;
+			return true;
 		}
 		else {
-			return null;
+			return false;
 		}
 	}
 	
@@ -83,7 +83,7 @@ public class Backpack {
     }
     
     public int getTotalWeight() {
-    	return this.totalWeight;
+    	return this.currentWeight;
     }
 
 }

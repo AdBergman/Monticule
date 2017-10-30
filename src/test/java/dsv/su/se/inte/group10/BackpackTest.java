@@ -76,7 +76,7 @@ public class BackpackTest {
 		ItemEquippable itemOne = new ItemEquippable("Thing one", EquipmentType.HELMET);
 		ItemEquippable itemTwo = new ItemEquippable("Thing two", EquipmentType.BOOTS);
 		bp.addItem(itemOne);
-		assertEquals(itemOne, bp.swapItem(itemOne, itemTwo));
+		assertTrue(bp.swapItem(itemOne, itemTwo));
 		assertFalse(bp.containsItem(itemOne));
 		assertTrue(bp.containsItem(itemTwo));
 	}
@@ -86,7 +86,7 @@ public class BackpackTest {
 		ItemEquippable itemOne = new ItemEquippable("Thing one", EquipmentType.HELMET, 5, 10);
 		ItemEquippable itemTwo = new ItemEquippable("Thing two", EquipmentType.BOOTS, 20, 10);
 		bp.addItem(itemOne);
-		assertEquals(null, bp.swapItem(itemOne, itemTwo));
+		assertFalse(bp.swapItem(itemOne, itemTwo));
 		assertTrue(bp.containsItem(itemOne));
 		assertFalse(bp.containsItem(itemTwo));
 	}

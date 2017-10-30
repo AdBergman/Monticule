@@ -16,10 +16,11 @@ public abstract class Creature {
 	}
 	
 	public Creature(int maxHP, int speed, int damage) {
-		if(maxHP < 0) {
-			throw new IllegalArgumentException("Max HP cannot be lower than one (1).");
-		} else if (speed <= 0 || damage <= 0) {
-			throw new IllegalArgumentException("Speed and Damage cannot be lower than zero (0).");
+		if(maxHP < 1) {
+			throw new IllegalArgumentException("Max HP must be one (1) or more.");
+		}
+		else if (speed < 0 || damage < 0) {
+			throw new IllegalArgumentException("Speed and Damage must be zero (0) or more.");
 		}
 		this.maxHP = new Stat(StatType.maxHP, maxHP);
 		this.currentHP = new Stat(StatType.currentHP, maxHP);
