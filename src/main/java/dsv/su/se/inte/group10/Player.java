@@ -54,7 +54,8 @@ public class Player extends Creature {
 		if(equippedList.containsKey(i.getEquipmentType())) {
 			swapItem = backpack.swapItem(i, equippedList.get(i.getEquipmentType()));
 		} else {
-			swapItem = (ItemEquippable) backpack.removeItem(i);
+			swapItem = i;
+			backpack.removeItem(i);
 		}
 		if(!(backpack.containsItem(swapItem) || swapItem == null)) {
 			equippedList.put(i.getEquipmentType(), i);

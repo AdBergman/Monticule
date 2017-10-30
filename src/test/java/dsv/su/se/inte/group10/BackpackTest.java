@@ -50,15 +50,15 @@ public class BackpackTest {
 	@Test
 	public void testRemoveItem() {
 		Item item = new Item("Medium item", 5, 7);
-		assertTrue(bp.addItem(item));
-		assertEquals(item, bp.removeItem(item));
+		bp.addItem(item);
+		assertTrue(bp.removeItem(item));
 		assertFalse(bp.containsItem(item));
 	}
 	
 	@Test
 	public void testRemoveItemNotInList() {
 		Item item = new Item("Medium item", 6, 8);
-		assertNull(bp.removeItem(item));
+		assertFalse(bp.removeItem(item));
 	}
 	
 	@Test(expected = java.util.NoSuchElementException.class)

@@ -39,16 +39,16 @@ public class Backpack {
 		}
 	}
 	
-	public Item removeItem(Item item) {
+	public boolean removeItem(Item item) {
 		if(itemList.contains(item)) {
 			itemList.remove(item);
 			totalWeight -= item.getWeight();
 			assert(totalWeight >= 0);
-			return item;
+			return true;
 		}
 		else {
 			//inget item som kan tas bort
-			return null;
+			return false;
 		}
 	}
 	
