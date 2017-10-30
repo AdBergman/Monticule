@@ -28,7 +28,7 @@ public class ItemWithStat extends Item {
 	}
 	
 	public void removeStat(Stat stat) {
-		if(stat.equals(null)) {
+		if(stat == null) {
 			throw new IllegalArgumentException("Argument is null.");
 		}
 		else if(!statList.contains(stat)) {
